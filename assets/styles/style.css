@@ -1,0 +1,750 @@
+/* ============================
+   Загальні стилі
+============================ */
+ *{
+  box-sizing: border-box;
+  margin: 0%;
+  padding: 0%;
+}
+body {
+  margin: 0;
+  color: white;
+  background-color: #030014;
+  text-align: center;
+  overflow-x: hidden;
+  font-family: Inter V, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
+}
+/* вся смуга прокрутки */
+::-webkit-scrollbar {
+  width: 5px;               /* товщина */
+}
+
+/* фон скролбару */
+::-webkit-scrollbar-track {
+  background: transparent;   /* прозорий трек */
+}
+
+/* сам бігунок */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  border-radius: 10px;        /* заокруглені кути */
+}
+
+/* ефект при наведенні */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.7) 0%,
+    rgba(255, 255, 255, 0.4) 100%
+  );
+}
+
+/* ============================
+   Header
+============================ */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1200;
+}
+.container_lg:before {
+  background: radial-gradient(62.87% 100% at 50% 100%, rgba(255, 255, 255, .12) 0%, rgba(255, 255, 255, 0) 100%);
+  bottom: 0;
+  content: "";
+  height: 3px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+
+/* Лого */
+.logo a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+}
+.logo a:hover {
+  color: #a383ff;
+}
+.logo img {
+  width: 36px;
+  height: 36px;
+}
+
+/* ============================
+   Бургер
+============================ */
+.burger {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 6px;
+  z-index: 1300;
+}
+.burger span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.burger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 7px);
+}
+.burger.active span:nth-child(2) {
+  opacity: 0;
+}
+.burger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -7px);
+}
+
+/* ============================
+   Мобільне меню
+============================ */
+nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  height: 100vh;
+  width: 100%;
+  background: rgba(0,0,0,0.95);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  transition: right 0.3s ease;
+  z-index: 1200;
+}
+nav.active {
+  right: 0;
+}
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-direction: column;
+  display: flex;
+  gap: 25px;
+}
+nav ul li a {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+nav ul li a:hover {
+  color: #a383ff;
+}
+
+/* Кнопки в мобільному меню */
+nav .auth-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 30px;
+  width: 80%;
+  max-width: 300px;
+}
+nav .auth-buttons a {
+  border-radius: 25px;
+  font-size: 16px;
+  text-decoration: none;
+  text-align: center;
+  transition: background 0.2s, color 0.2s;
+}
+nav .auth-buttons .login,
+nav .auth-buttons .signup {
+  background: #fff;
+  color: black;
+}
+nav .auth-buttons .login:hover,
+nav .auth-buttons .signup:hover {
+  background: #ddd;
+}
+nav .auth-buttons .start-trial {
+  background: #a383ff;
+  color: white;
+  font-weight: 600;
+}
+nav .auth-buttons .start-trial:hover {
+  background: #8c6cff;
+}
+
+/* ============================
+   Кнопки у десктопі
+============================ */
+.auth-buttons {
+  display: none;
+}
+.auth-buttons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 14px;
+  height: 36px;
+  line-height: 1;
+  padding: 0 15px;
+  border-radius: 20px;
+  color: white;
+  background: transparent;
+}
+.auth-buttons a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+.auth-buttons .start-trial {
+  background: #a383ff;
+  color: white;
+  font-weight: 500;
+}
+.auth-buttons .start-trial:hover {
+  background: #8c6cff;
+}
+
+/* ============================
+   Hero секція
+============================ */
+.hero { margin-top: 100px; padding: 0 20px; }
+.hero .announcement {
+  display: inline-block;           /* ширина під текст */
+  padding: 8px 20px;
+  border-radius: 32px;
+  background: linear-gradient(90deg, rgba(229,156,255,0.24) 0%, rgba(186,156,255,0.24) 50%, rgba(156,178,255,0.24) 100%);
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  text-align: center;              /* текст всередині блоку */
+         
+}
+
+.hero h1 {
+width: 799.22998046875;
+height: 80;
+opacity: 1;
+top: 221px;
+left: 320.48px;
+font-family: Segoe UI;
+font-weight: 500;
+font-style: Regular;
+font-size: 72px;
+line-height: 130px;
+letter-spacing: 0%;
+text-align: center;
+vertical-align: middle;
+ background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.7) 100%);
+  -webkit-background-clip: text; /* обрізає фон по тексту */
+  -webkit-text-fill-color: transparent; /* робить текст прозорим, щоб був видний фон */
+  background-clip: text; /* для сумісності з деякими браузерами */
+
+}
+.hero p {
+  width: 326.5770568847656;
+height: 28;
+opacity: 1;
+top: 313px;
+left: 556.88px;
+color: #EFEDFDB2;
+font-weight: 400;
+font-style: Regular;
+font-size: 18px;
+line-height: 28px;
+letter-spacing: 0%;
+text-align: center;
+vertical-align: middle;
+}
+
+.hero-images {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  height: 1200px; /* висота під чорну діру */
+}
+
+
+.image_top {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220%;
+  max-width: none;
+  z-index: -1;
+   
+}
+
+
+.image_bottom {
+  position: absolute;   
+  bottom: 0;            /* піднімаємо від низу контейнера */
+  left: 50%;
+  transform: translateX(-50%) translateY(40%); /* піднімаємо на 50% висоти чорної діри */
+  width: 150%;
+  z-index: 1;           /* поверх чорної діри */
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 15px;
+    
+
+    /* Зовнішня тінь */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    -webkit-mask-image: linear-gradient(to top, transparent 0%, black 100%);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: cover;
+  mask-image: linear-gradient(to top, transparent 0%, black 100%);
+  mask-repeat: no-repeat;
+  mask-size: cover;
+}
+
+.features-grid {
+  max-width: 1200px;
+  margin: 400px auto 0; /* відступ зверху 80px */
+  padding: 50px 20px;
+  position: relative;
+  z-index: 10; /* щоб було вище за чорну діру */
+}
+
+
+.grid-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px; /* відстань між рядами */
+  padding-bottom: 20px; /* відступ від лінії */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.grid-row:last-child {
+  border-bottom: none; /* прибираємо у нижнього */
+}
+.feature {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  text-align: left;
+  width: 22%; /* щоб 4 елементи в рядку помістились */
+  padding: 10px;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+.feature:last-child {
+  border-right: none; /* щоб справа не було зайвої лінії */
+}
+.feature img {
+  width: 50px; /* розмір іконки */
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.feature p {
+  font-size: 16px;
+  color: #fff;
+}
+.feature small {
+font-family: Inter;
+font-weight: 400;
+font-style: Regular;
+font-size: 16px;
+line-height: 24px;
+letter-spacing: 0%;
+vertical-align: middle;
+color: #EFEDFD99;
+padding-top: 10px;
+}
+
+.features-text {
+  max-width: 800px;
+  margin: 100px auto 0;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.announcement-box {
+  display: inline-block;
+  padding: 6px 18px;
+  background: linear-gradient(
+    90deg,
+    rgba(229, 156, 255, 0.24) 0.01%,
+    rgba(186, 156, 255, 0.24) 50.01%,
+    rgba(156, 178, 255, 0.24) 100%
+  );
+  border-radius: 32px;
+  font-size: 14px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.features-text h2{
+font-family: Segoe UI;
+font-weight: 400;
+font-style: Regular;
+font-size: 56px;
+line-height: 64px;
+letter-spacing: 0%;
+text-align: center;
+vertical-align: middle;
+ background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.7) 100%);
+  -webkit-background-clip: text; /* обрізає фон по тексту */
+  -webkit-text-fill-color: transparent; /* робить текст прозорим, щоб був видний фон */
+  background-clip: text; /* для сумісності з деякими браузерами */
+padding-bottom: 15px;
+}
+.features-text p{
+  font-family: Inter;
+font-weight: 400;
+font-style: Regular;
+font-size: 16px;
+line-height: 24px;
+letter-spacing: 0%;
+text-align: center;
+vertical-align: middle;
+color: rgba(239, 237, 253, 0.7);
+}
+
+.features-image {
+  position: relative;
+  text-align: center;
+}
+
+.features-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.gradient-text {
+  font-family: Segoe UI, sans-serif;
+  font-weight: 500;
+  font-size: 30px;
+  letter-spacing: 0;
+  background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.7) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  position: absolute;
+  top: 75%;   /* піднімає текст над фото */
+  left: 50%;
+  transform: translateX(-50%); /* центрування по горизонталі */
+}
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 900px;
+  margin: 0 auto;
+  color: #fff;
+}
+
+.grid-item {
+  padding: 20px;
+  position: relative; /* для псевдоелементів */
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* горизонтальне центрування */
+  justify-content: center; /* вертикальне центрування */
+  text-align: center;
+}
+
+/* вертикальні лінії з градієнтом */
+.grid-item:not(:nth-child(3n))::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+/* горизонтальні лінії */
+.grid-item:nth-child(1),
+.grid-item:nth-child(2),
+.grid-item:nth-child(3) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* прибираємо нижні лінії у 4-го і 5-го */
+.grid-item:nth-child(4),
+.grid-item:nth-child(5) {
+  border-bottom: none;
+}
+
+.grid-item img {
+  width: 40px;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.grid-item h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.grid-item p {
+  font-size: 14px;
+  color: #bbb;
+}
+
+.second-grid{
+  margin-bottom: 300px;
+}
+.two-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 468px);
+  justify-content: center; /* центруємо всю сітку */
+  margin: 60px auto;
+}
+
+.grid-box {
+  position: relative;
+  width: 468px;
+  height: 384px;
+  background: radial-gradient(
+    100% 121.87% at 50% 50%,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(3, 0, 20, 0) 100%
+  );
+  border-radius: 20px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #fff;
+  text-align: left;
+}
+
+/* вертикальні лінії */
+.grid-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  background: linear-gradient(
+    0deg,
+    rgba(243, 238, 255, 0.12) 0%,
+    rgba(243, 238, 255, 0) 100%
+  );
+  border-radius: 20px 0 0 20px; /* округлення для лівого краю */
+}
+
+.grid-box::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 1px;
+  background: linear-gradient(
+    0deg,
+    rgba(243, 238, 255, 0.12) 0%,
+    rgba(243, 238, 255, 0) 100%
+  );
+  border-radius: 0 20px 20px 0; /* округлення для правого краю */
+}
+
+/* горизонтальні лінії через внутрішній псевдоелемент */
+.grid-box::before,
+.grid-box::after {
+  box-sizing: border-box;
+}
+
+.big-photo {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.icon_box {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 12px;
+}
+
+/* для другого блоку — вміст знизу */
+.two-grid .grid-box:nth-child(2) {
+  justify-content: flex-end;
+}
+
+.grid-box h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.grid-box p {
+  font-size: 14px;
+  color: #bbb;
+}
+.banner-hero {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  overflow: hidden;
+}
+
+/* Зображення як HTML елемент */
+.banner-hero__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* зберігає пропорції і покриває весь блок */
+  z-index: 0;
+}
+
+/* Контейнер тексту та сітки */
+.banner-hero__wrapper {
+  position: relative;
+  text-align: center;
+  color: #fff;
+  max-width: 1200px;
+  z-index: 1; /* щоб текст був поверх зображення */
+}
+
+/* Градієнтний заголовок */
+.banner-hero__title {
+  margin-bottom: 40px;
+  font-family: Segoe UI;
+font-weight: 400;
+font-style: Regular;
+font-size: 56px;
+line-height: 64px;
+letter-spacing: 0%;
+text-align: center;
+vertical-align: middle;
+ background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.7) 100%);
+  -webkit-background-clip: text; /* обрізає фон по тексту */
+  -webkit-text-fill-color: transparent; /* робить текст прозорим, щоб був видний фон */
+  background-clip: text; /* для сумісності з деякими браузерами */
+
+
+}
+
+/* Сітка двох блоків */
+.banner-feature__grid {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+}
+
+/* Картки */
+.banner-feature__card {
+  width: 468px;
+  height: 384px;
+  background: radial-gradient(
+    100% 121.87% at 50% 50%,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(3, 0, 20, 0) 100%
+  );
+  border-radius: 20px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #fff;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Іконки */
+.banner-feature__icon {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 12px;
+}
+
+/* Заголовки та опис */
+.banner-feature__heading {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.banner-feature__text {
+  font-size: 14px;
+  color: #bbb;
+}
+
+
+
+@media (max-width: 768px) {
+  .second-grid {
+    grid-template-columns: 1fr; /* в мобільному по 1 */
+  }
+}
+
+
+
+
+/* ============================
+   Адаптивність
+============================ */
+@media (min-width: 1100px) {
+  nav {
+    position: relative;
+    right: 0;
+    height: auto;
+    width: auto;
+    background: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    margin: 0 auto;
+    position: static;
+    transform: none;
+  }
+
+  .container_navigation {
+    border-radius: 999px;
+    background: #FFFFFF05;
+    border: 1px solid #FFFFFF14;
+    padding: 10px 20px;
+  }
+
+  nav .auth-buttons {
+    display: none;
+  }
+
+  .auth-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  .burger {
+    display: none;
+  }
+}
+
+
