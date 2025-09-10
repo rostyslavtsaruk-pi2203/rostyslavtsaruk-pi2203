@@ -1,40 +1,45 @@
-/* ============================
-   Загальні стилі
-============================ */
+
  *{
   box-sizing: border-box;
   margin: 0%;
   padding: 0%;
 }
 body {
+  padding-top: 80px; 
   margin: 0;
   color: white;
   background-color: #030014;
   text-align: center;
   overflow-x: hidden;
-  font-family: Inter V, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
 }
-/* вся смуга прокрутки */
+
+section:not(.final) {
+  margin-bottom: 50px; 
+  position: relative;
+}
+
+
 ::-webkit-scrollbar {
-  width: 5px;               /* товщина */
+  width: 5px;               
 }
 
-/* фон скролбару */
+
 ::-webkit-scrollbar-track {
-  background: transparent;   /* прозорий трек */
+  background: transparent;   
 }
 
-/* сам бігунок */
+
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(
     180deg,
     rgba(255, 255, 255, 0.5) 0%,
     rgba(255, 255, 255, 0.2) 100%
   );
-  border-radius: 10px;        /* заокруглені кути */
+  border-radius: 10px;        
 }
 
-/* ефект при наведенні */
+
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(
     180deg,
@@ -43,18 +48,29 @@ body {
   );
 }
 
-/* ============================
-   Header
-============================ */
+
 header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;             
+  z-index: 1000;           
+  background: #030014;     
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+header.container_lg {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 15px 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1200;
+  justify-content: space-between; 
+  padding: 0 50px;
+  height: 80px; 
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #030014;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 1000;
 }
 .container_lg:before {
   background: radial-gradient(62.87% 100% at 50% 100%, rgba(255, 255, 255, .12) 0%, rgba(255, 255, 255, 0) 100%);
@@ -70,7 +86,7 @@ header {
 .logo a {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 15px;
   text-decoration: none;
   color: white;
   font-size: 18px;
@@ -83,9 +99,7 @@ header {
   height: 36px;
 }
 
-/* ============================
-   Бургер
-============================ */
+
 .burger {
   display: flex;
   flex-direction: column;
@@ -111,9 +125,7 @@ header {
   transform: rotate(-45deg) translate(6px, -7px);
 }
 
-/* ============================
-   Мобільне меню
-============================ */
+
 nav {
   position: fixed;
   top: 0;
@@ -150,7 +162,7 @@ nav ul li a:hover {
   color: #a383ff;
 }
 
-/* Кнопки в мобільному меню */
+
 nav .auth-buttons {
   display: flex;
   flex-direction: column;
@@ -184,9 +196,7 @@ nav .auth-buttons .start-trial:hover {
   background: #8c6cff;
 }
 
-/* ============================
-   Кнопки у десктопі
-============================ */
+
 .auth-buttons {
   display: none;
 }
@@ -198,7 +208,7 @@ nav .auth-buttons .start-trial:hover {
   font-size: 14px;
   height: 36px;
   line-height: 1;
-  padding: 0 15px;
+  padding: 0 5px;
   border-radius: 20px;
   color: white;
   background: transparent;
@@ -215,19 +225,17 @@ nav .auth-buttons .start-trial:hover {
   background: #8c6cff;
 }
 
-/* ============================
-   Hero секція
-============================ */
+
 .hero { margin-top: 100px; padding: 0 20px; }
 .hero .announcement {
-  display: inline-block;           /* ширина під текст */
+  display: inline-block;           
   padding: 8px 20px;
   border-radius: 32px;
   background: linear-gradient(90deg, rgba(229,156,255,0.24) 0%, rgba(186,156,255,0.24) 50%, rgba(156,178,255,0.24) 100%);
   font-size: 14px;
   font-weight: 500;
   color: white;
-  text-align: center;              /* текст всередині блоку */
+  text-align: center;            
          
 }
 
@@ -246,9 +254,9 @@ letter-spacing: 0%;
 text-align: center;
 vertical-align: middle;
  background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.7) 100%);
-  -webkit-background-clip: text; /* обрізає фон по тексту */
-  -webkit-text-fill-color: transparent; /* робить текст прозорим, щоб був видний фон */
-  background-clip: text; /* для сумісності з деякими браузерами */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  background-clip: text; 
 
 }
 .hero p {
@@ -288,21 +296,22 @@ vertical-align: middle;
 
 
 .image_bottom {
-  position: absolute;   
-  bottom: 0;            /* піднімаємо від низу контейнера */
+  position: absolute;
+  bottom: 0;
   left: 50%;
-  transform: translateX(-50%) translateY(40%); /* піднімаємо на 50% висоти чорної діри */
-  width: 150%;
-  z-index: 1;           /* поверх чорної діри */
+  transform: translateX(-50%) translateY(30%) scale(1.5);
+  width: 100%;
+  z-index: 1;
+  
   background: rgba(255, 255, 255, 0.01);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 24px;
   padding: 15px;
-    
 
-    /* Зовнішня тінь */
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-    -webkit-mask-image: linear-gradient(to top, transparent 0%, black 100%);
+  /* Зовнішня тінь */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, black 100%);
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-size: cover;
   mask-image: linear-gradient(to top, transparent 0%, black 100%);
@@ -312,10 +321,10 @@ vertical-align: middle;
 
 .features-grid {
   max-width: 1200px;
-  margin: 400px auto 0; /* відступ зверху 80px */
-  padding: 50px 20px;
+  margin: 0 auto; /* відступ зверху 80px */
   position: relative;
   z-index: 10; /* щоб було вище за чорну діру */
+  margin-top: 150px;
 }
 
 
@@ -334,7 +343,7 @@ vertical-align: middle;
   flex-direction: column;
   align-items: left;
   text-align: left;
-  width: 22%; /* щоб 4 елементи в рядку помістились */
+  width: 22%; 
   padding: 10px;
   border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -342,7 +351,7 @@ vertical-align: middle;
   border-right: none; /* щоб справа не було зайвої лінії */
 }
 .feature img {
-  width: 50px; /* розмір іконки */
+  width: 50px; 
   height: 50px;
   margin-bottom: 10px;
 }
@@ -433,7 +442,7 @@ color: rgba(239, 237, 253, 0.7);
   background-clip: text;
 
   position: absolute;
-  top: 75%;   /* піднімає текст над фото */
+  top: 75%;   
   left: 50%;
   transform: translateX(-50%); /* центрування по горизонталі */
 }
@@ -452,8 +461,8 @@ color: rgba(239, 237, 253, 0.7);
   position: relative; /* для псевдоелементів */
   display: flex;
   flex-direction: column;
-  align-items: center;   /* горизонтальне центрування */
-  justify-content: center; /* вертикальне центрування */
+  align-items: center;   
+  justify-content: center; 
   text-align: center;
 }
 
@@ -579,7 +588,7 @@ color: rgba(239, 237, 253, 0.7);
   margin-bottom: 12px;
 }
 
-/* для другого блоку — вміст знизу */
+
 .two-grid .grid-box:nth-child(2) {
   justify-content: flex-end;
 }
@@ -596,7 +605,6 @@ color: rgba(239, 237, 253, 0.7);
 .banner-hero {
   position: relative;
   width: 100%;
-  height: 600px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -604,29 +612,30 @@ color: rgba(239, 237, 253, 0.7);
   overflow: hidden;
 }
 
-/* Зображення як HTML елемент */
+
 .banner-hero__img {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
-  object-fit: cover; /* зберігає пропорції і покриває весь блок */
+  max-width: 1500px;
+  object-fit: cover; 
   z-index: 0;
 }
 
-/* Контейнер тексту та сітки */
+
 .banner-hero__wrapper {
+
   position: relative;
   text-align: center;
   color: #fff;
   max-width: 1200px;
-  z-index: 1; /* щоб текст був поверх зображення */
+  z-index: 1; 
+  margin-top: 800px;
 }
 
-/* Градієнтний заголовок */
+
 .banner-hero__title {
-  margin-bottom: 40px;
+  
+  margin-bottom: 20px;
   font-family: Segoe UI;
 font-weight: 400;
 font-style: Regular;
@@ -636,49 +645,42 @@ letter-spacing: 0%;
 text-align: center;
 vertical-align: middle;
  background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.7) 100%);
-  -webkit-background-clip: text; /* обрізає фон по тексту */
-  -webkit-text-fill-color: transparent; /* робить текст прозорим, щоб був видний фон */
-  background-clip: text; /* для сумісності з деякими браузерами */
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent; 
+  background-clip: text; 
 
 
 }
 
-/* Сітка двох блоків */
+
 .banner-feature__grid {
   display: flex;
   gap: 40px;
   justify-content: center;
+  padding-top: 100px;
+  
 }
 
-/* Картки */
+
 .banner-feature__card {
-  width: 468px;
-  height: 384px;
-  background: radial-gradient(
-    100% 121.87% at 50% 50%,
-    rgba(255, 255, 255, 0.03) 0%,
-    rgba(3, 0, 20, 0) 100%
-  );
   border-radius: 20px;
   padding: 32px;
-  display: flex;
   flex-direction: column;
-  align-items: flex-start;
   color: #fff;
-  text-align: left;
+  text-align: center;
   position: relative;
   overflow: hidden;
   z-index: 1;
 }
 
-/* Іконки */
+
 .banner-feature__icon {
   width: 32px;
   height: 32px;
   margin-bottom: 12px;
 }
 
-/* Заголовки та опис */
+
 .banner-feature__heading {
   font-size: 18px;
   margin-bottom: 8px;
@@ -688,21 +690,935 @@ vertical-align: middle;
   font-size: 14px;
   color: #bbb;
 }
+.research_reading {
+  display: inline-block;
+  padding: 6px 18px;
+  background: linear-gradient(
+    90deg,
+    rgba(229, 156, 255, 0.24) 0.01%,
+    rgba(186, 156, 255, 0.24) 50.01%,
+    rgba(156, 178, 255, 0.24) 100%
+  );
+  border-radius: 32px;
+  font-size: 14px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.text_p_collect {
+  font-family: Inter;
+font-weight: 400;
+font-style: Regular;
+font-size: 16px;
+line-height: 24px;
+letter-spacing: 0%;
+text-align: center;
+vertical-align: middle;
+color: rgba(239, 237, 253, 0.7);
+}
+/* Section */
+
+.banner-feature__card:first-child {
+  border-right: 1px solid rgba(255, 255, 255, 0.2); /* вертикальна лінія */
+  padding-right: 40px; /* відступ від лінії */
+}
+.banner-feature__card:last-child {
+  border-left: 1px solid rgba(255, 255, 255, 0.2); /* вертикальна лінія */
+  padding-right: 40px; /* відступ від лінії */
+}
+
+.lock {
+  position: relative;
+  width: 80px;   
+  height: 110px;  
+  margin: 0 auto; 
+  margin-top: 300px;
+  margin-bottom: 30px;
+}
+
+.lock__top {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;   
+}
+
+.lock__body {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+}
+.all_your_notes{
+display: inline-block;
+  padding: 6px 18px;
+  background: linear-gradient(
+    90deg,
+    rgba(229, 156, 255, 0.24) 0.01%,
+    rgba(186, 156, 255, 0.24) 50.01%,
+    rgba(156, 178, 255, 0.24) 100%
+  );
+  border-radius: 32px;
+  font-size: 14px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.code_chato h2{
+font-family: Segoe UI;
+font-weight: 400;
+font-style: Regular;
+font-size: 56px;
+line-height: 64px;
+letter-spacing: 0%;
+text-align: center;
+vertical-align: middle;
+ background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.7) 100%);
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent; 
+  background-clip: text; 
+padding-bottom: 15px;
+}
+.code_chato p{
+  font-family: Inter;
+font-weight: 400;
+font-style: Regular;
+font-size: 16px;
+line-height: 24px;
+letter-spacing: 0%;
+text-align: center;
+vertical-align: middle;
+color: rgba(239, 237, 253, 0.7);
+}
+.meetings {
+  text-align: center;
+  color: #fff;
+  position: relative;
+  margin-top: 300px;
+}
+
+.meetings__img {
+  width: 80%;      
+  max-width: 800px; 
+  margin: 0 auto;  
+  display: block;
+}
+
+.meetings__content {
+  margin-top: -130px; 
+  position: relative;
+  z-index: 1; 
+}
+
+.meetings__tag {
+ display: inline-block;
+  padding: 6px 18px;
+  background: linear-gradient(
+    90deg,
+    rgba(229, 156, 255, 0.24) 0.01%,
+    rgba(186, 156, 255, 0.24) 50.01%,
+    rgba(156, 178, 255, 0.24) 100%
+  );
+  border-radius: 32px;
+  font-size: 14px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.meetings__title {
+  font-family: Segoe UI;
+font-weight: 400;
+font-style: Regular;
+font-size: 56px;
+line-height: 64px;
+letter-spacing: 0%;
+text-align: center;
+vertical-align: middle;
+ background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.7) 100%);
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent; 
+  background-clip: text; 
+padding-bottom: 15px;
+}
+
+.meetings__text {
+  font-family: Inter;
+font-weight: 400;
+font-style: Regular;
+font-size: 16px;
+line-height: 24px;
+letter-spacing: 0%;
+text-align: center;
+vertical-align: middle;
+color: rgba(239, 237, 253, 0.7);
+}
+
+.meetings__extra {
+  width: 100%;        
+  max-width: 1500px;
+  margin: 0 auto; 
+  display: block;     
+}
+section {
+  position: relative; 
+}
+
+.icons_numbers {
+  width: 70%;
+  max-width: 1000px;
+  display: block;
+  margin: 0 auto;
+}
 
 
+.integrations_wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.integrations_wrapper img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.integrations_button{
+display: inline-block;
+  padding: 6px 18px;
+  background: linear-gradient(
+    90deg,
+    rgba(229, 156, 255, 0.24) 0.01%,
+    rgba(186, 156, 255, 0.24) 50.01%,
+    rgba(156, 178, 255, 0.24) 100%
+  );
+  border-radius: 32px;
+  font-size: 14px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.use_reflect_text h2{
+font-family: Segoe UI;
+font-weight: 400;
+font-style: Regular;
+font-size: 56px;
+line-height: 64px;
+letter-spacing: 0%;
+text-align: center;
+vertical-align: middle;
+ background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.7) 100%);
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent; 
+  background-clip: text; 
+padding-bottom: 15px;
+}
+
+.pricing {
+  position: relative;
+  text-align: center;
+  color: #fff;
+  padding: 120px 20px 0; 
+}
+
+.pricing__wrapper {
+  position: relative;
+  text-align: center; 
+}
+
+.pricing__bg {
+  display: inline-block; 
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+}
+.pricing__tag{
+display: inline-block;
+  padding: 6px 18px;
+  background: linear-gradient(
+    90deg,
+    rgba(229, 156, 255, 0.24) 0.01%,
+    rgba(186, 156, 255, 0.24) 50.01%,
+    rgba(156, 178, 255, 0.24) 100%
+  );
+  border-radius: 32px;
+  font-size: 14px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.pricing__title{
+  font-family: Segoe UI;
+font-weight: 400;
+font-style: Regular;
+font-size: 48px;
+line-height: 56px;
+letter-spacing: 0%;
+text-align: center;
+vertical-align: middle;
+padding-bottom: 50px;
+
+}
+.pricing__content {
+  position: absolute; 
+  top: 25%;           
+  left: 50%;          
+  transform: translate(-50%, -50%); 
+  z-index: 1;
+  width: 90%;         
+  text-align: center;
+  color: #fff;
+}
+
+
+ .pricing__amount {
+  font-family: "Segoe UI", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 70.59px;
+  line-height: 80px;
+  letter-spacing: 0%;
+  vertical-align: middle;
+
+  background: linear-gradient(90.01deg, #E59CFF 0.01%, #BA9CFF 50.01%, #9CB2FF 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.pricing__features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px 100px;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  padding-top: 10px;
+  list-style: none;
+  text-align: left;
+}
+
+.pricing__features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  color: #fff;
+}
+
+.pricing__features li img {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.pricing__btn {
+  background: linear-gradient(0deg, rgba(207, 184, 255, 0.32), rgba(207, 184, 255, 0.32)),
+linear-gradient(180deg, rgba(207, 184, 255, 0.24) 0%, rgba(207, 184, 255, 0) 100%);
+
+  color: #fff;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.pricing__btn:hover {
+  background: #5533cc;
+}
+
+.highlight__top-img {
+  display: block;
+  width: 100%;       
+  max-width: 936px; 
+  height: auto;      
+  margin: 0 auto;    
+}
+
+.highlight__wrapper {
+  position: relative;
+  text-align: center; /* центр тексту поверх картинки */
+}
+
+.highlight__text {
+  position: absolute; 
+  top: 15%; /* піднімаємо текст трохи вгору від центру */
+  left: 50%;
+  transform: translate(-50%, -100%); /* трохи вище нижньої картинки */
+  color: #fff;
+  width: 90%;
+  text-align: center;
+  z-index: 2; /* щоб бути над нижньою картинкою */
+}
+
+.highlight__content {
+  margin: 40px auto;
+  max-width: 800px;
+  text-align: center;
+}
+.wall_of_love_button{
+    display: inline-block;
+    padding: 6px 18px;
+    background: linear-gradient(90deg, rgba(229, 156, 255, 0.24) 0.01%, rgba(186, 156, 255, 0.24) 50.01%, rgba(156, 178, 255, 0.24) 100%);
+    border-radius: 32px;
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+.highlight__text h2{
+ font-family: Segoe UI;
+font-weight: 400;
+font-style: Regular;
+font-size: 56px;
+line-height: 64px;
+letter-spacing: 0%;
+text-align: center;
+vertical-align: middle;
+ background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.7) 100%);
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent; 
+  background-clip: text; 
+padding-bottom: 15px;
+
+
+}
+.highlight__text p{
+      font-family: Inter;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0%;
+    text-align: center;
+    vertical-align: middle;
+    color: rgba(239, 237, 253, 0.7);
+}
+
+.highlight__bottom-img {
+  position: absolute; 
+  top: 45%;  
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%; 
+  max-width: 1000px;
+  height: auto;
+  z-index: 1; 
+}
+
+.about_us {
+  text-align: center;
+}
+
+.about_us__top-btn,
+.about_us__bottom-btn {
+  margin: 20px auto;
+}
+
+.about_us__top-btn button,
+.about_us__bottom-btn button {
+  padding: 14px 28px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(90deg, rgba(229, 156, 255, 0.24) 0.01%, rgba(186, 156, 255, 0.24) 50.01%, rgba(156, 178, 255, 0.24) 100%);
+
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.about_us__top-btn button:hover,
+.about_us__bottom-btn button:hover {
+  background: #5533cc;
+}
+
+.about_us__text {
+  max-width: 800px;
+  margin: 20px auto; 
+}
+
+.about_us__text h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  font-family: Segoe UI;
+font-weight: 400;
+font-style: Regular;
+font-size: 56px;
+line-height: 64px;
+letter-spacing: 0%;
+text-align: center;
+vertical-align: middle;
+background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.7) 100%);
+-webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent; 
+  background-clip: text; 
+
+}
+
+.about_us__text p {
+ font-family: Inter;
+font-weight: 400;
+font-style: Regular;
+font-size: 16px;
+line-height: 24px;
+letter-spacing: 0%;
+text-align: center;
+vertical-align: middle;
+background: rgba(239, 237, 253, 0.7);
+-webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent; 
+  background-clip: text; 
+
+
+}
+
+.about_us__image img {
+  display: block;
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  margin: 40px auto 0;
+  transform: scale(1.5)
+}
+
+.academy {
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.academy__image-wrapper {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+
+.academy__image {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+}
+
+
+.academy__top-btn {
+  position: absolute;
+  top: 25%; 
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.academy__top-btn button {
+padding: 14px 28px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(90deg, rgba(229, 156, 255, 0.24) 0.01%, rgba(186, 156, 255, 0.24) 50.01%, rgba(156, 178, 255, 0.24) 100%);
+
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.academy__top-btn button:hover {
+  background: #5533cc;
+}
+
+
+.academy__text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+  vertical-align: middle;
+
+  
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 500;
+  font-style: normal; 
+  font-size: 20px;
+  line-height: 64px;
+  letter-spacing: 0;
+  margin-bottom: 5px;
+
+ 
+  background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.7) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+
+.academy__bottom-btn {
+  position: absolute;
+  bottom: 25%; 
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.academy__bottom-btn button {
+  padding: 14px 28px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  background: #6c47ff;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.academy__bottom-btn button:hover {
+  background: #5533cc;
+}
+
+
+.academy__info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; 
+  margin-top: 20px;
+}
+
+.academy__small-text {
+  font-size: 14px;
+  color: #555;
+}
+
+.academy__icons img {
+  width: 24px;  
+  height: 24px;
+}
+
+.final {
+  text-align: center;
+}
+
+.final__image-wrapper {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  margin-top: 150px;
+}
+
+.final__image {
+  display: block;
+  width: 100%;
+  max-width: 1500px;
+  height: auto;
+}
+
+
+.final__content {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+  z-index: 2;
+}
+
+.final__content h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  font-family: Segoe UI;
+font-weight: 400;
+font-style: Regular;
+font-size: 56px;
+line-height: 64px;
+letter-spacing: 0%;
+text-align: center;
+vertical-align: middle;
+background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.7) 100%);
+-webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent; 
+  background-clip: text; 
+}
+
+.final__content p {
+   font-family: Inter;
+font-weight: 400;
+font-style: Regular;
+font-size: 16px;
+line-height: 24px;
+letter-spacing: 0%;
+text-align: center;
+vertical-align: middle;
+color: rgba(239, 237, 253, 0.7);
+}
+
+/* Кнопки */
+.final__top-btn,
+.final__bottom-btn {
+  margin: 15px 0;
+}
+
+.btn {
+  padding: 14px 28px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn--primary {
+  padding: 14px 28px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(90deg, rgba(229, 156, 255, 0.24) 0.01%, rgba(186, 156, 255, 0.24) 50.01%, rgba(156, 178, 255, 0.24) 100%);
+
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn--primary:hover {
+  background: #5533cc;
+}
+
+.btn--secondary {
+  background: #fff;
+  color: #6c47ff;
+  border: 2px solid #6c47ff;
+}
+
+.btn--secondary:hover {
+  background: linear-gradient(90deg, rgba(229, 156, 255, 0.24) 0.01%, rgba(186, 156, 255, 0.24) 50.01%, rgba(156, 178, 255, 0.24) 100%);;
+}
+
+.footer {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  background: linear-gradient(0deg, #030014, #030014),
+              radial-gradient(50% 44.06% at 50% 50%, rgba(147, 130, 255, 0.08) 0%, rgba(147, 130, 255, 0) 100%);
+  color: #fff;
+  padding: 60px 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  box-sizing: border-box;
+  text-align: left;
+}
+
+
+.footer__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.footer__social {
+  margin-top: 70px;
+  display: flex;
+  gap: 15px;
+  width: 24px;
+height: 24px;
+opacity: 1;
+margin-left: 25px;
+
+}
+
+.footer__links {
+  display: flex;
+  gap: 100px;
+}
+
+.footer__column h3 {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+.footer__column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer__column ul li {
+  margin-bottom: 10px;
+}
+
+.footer__column ul li a {
+  color: #aaa;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer__column ul li a:hover {
+  color: #fff;
+}
+
+
+.footer__divider {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 30px 0;
+}
+
+
+.footer__middle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.footer__text h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.footer__text p {
+  font-size: 14px;
+  color: #aaa;
+}
+
+.footer__subscribe {
+  display: flex;
+  gap: 10px;
+}
+
+.footer__input {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  background-color: #030014;
+  color: #bbb;
+}
+
+.footer__btn {
+  padding: 10px 20px;
+  background: #6c47ff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.footer__btn:hover {
+  background: #5533cc;
+}
+
+
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #aaa;
+}
+
+
+.footer__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.footer__links {
+  display: flex;
+  gap: 60px;
+}
+
+.footer__middle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+@media (max-width: 768px) {
+  .footer__top,
+  .footer__links,
+  .footer__middle,
+  .footer__bottom {
+    flex-direction: column;   
+    align-items: center;       
+    text-align: center;  
+    gap: 20px;                
+  }
+
+  .footer__subscribe {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .footer__input {
+    width: 100%; /* поле на всю ширину */
+  }
+
+  .footer__btn {
+    width: 100%; /* кнопка теж на всю ширину */
+  }
+
+}
+@media (max-width: 768px) {
+  .banner-feature__grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 колонки на мобілці */
+  }
+}
+@media (max-width: 1000px) {
+  .meetings__content {
+    margin-top: -100px; /* менший відступ для мобільних */
+  }
+}
+@media (max-width: 768px) {
+  .meetings__content {
+    margin-top: -40px; /* менший відступ для мобільних */
+  }
+}
 
 @media (max-width: 768px) {
   .second-grid {
     grid-template-columns: 1fr; /* в мобільному по 1 */
   }
 }
+@media(max-width: 1000px){
+  .image_bottom{
+   transform: translateX(-50%) translateY(0%) scale(1.0);
+  }
+  
+}
+@media(max-width: 870px){
+  .image_bottom{
+   transform: translateX(-50%) translateY(-20%) scale(1.0);
+  }
+  
+}
+@media(max-width: 768px){
+  .image_bottom{
+   transform: translateX(-50%) translateY(-50%) scale(1.0);
+  }
+  
+}
 
-
-
-
-/* ============================
-   Адаптивність
-============================ */
 @media (min-width: 1100px) {
   nav {
     position: relative;
