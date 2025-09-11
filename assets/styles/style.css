@@ -59,19 +59,23 @@ header {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 header.container_lg {
-  display: flex;
-  align-items: center;
-  justify-content: space-between; 
-  padding: 0 50px;
-  height: 80px; 
   position: fixed;
   top: 0;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%); /* центрування */
+  max-width: 1500px;           /* обмеження */
+  width: 100%;                 /* адаптивність */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
+  height: 80px;
   background: #030014;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(3, 0, 20, 0.9);
   z-index: 1000;
 }
+
 .container_lg:before {
   background: radial-gradient(62.87% 100% at 50% 100%, rgba(255, 255, 255, .12) 0%, rgba(255, 255, 255, 0) 100%);
   bottom: 0;
@@ -178,13 +182,11 @@ nav .auth-buttons a {
   text-align: center;
   transition: background 0.2s, color 0.2s;
 }
-nav .auth-buttons .login,
-nav .auth-buttons .signup {
+nav .auth-buttons .login{
   background: #fff;
   color: black;
 }
-nav .auth-buttons .login:hover,
-nav .auth-buttons .signup:hover {
+nav .auth-buttons .login:hover{
   background: #ddd;
 }
 nav .auth-buttons .start-trial {
@@ -259,7 +261,7 @@ vertical-align: middle;
   background-clip: text; 
 
 }
-.hero p {
+.hero h2 {
   width: 326.5770568847656;
 height: 28;
 opacity: 1;
@@ -324,7 +326,7 @@ vertical-align: middle;
   margin: 0 auto; /* відступ зверху 80px */
   position: relative;
   z-index: 10; /* щоб було вище за чорну діру */
-  margin-top: 150px;
+  margin-top: 30px;
 }
 
 
@@ -409,7 +411,7 @@ vertical-align: middle;
   background-clip: text; /* для сумісності з деякими браузерами */
 padding-bottom: 15px;
 }
-.features-text p{
+.features-text h3{
   font-family: Inter;
 font-weight: 400;
 font-style: Regular;
@@ -780,7 +782,7 @@ vertical-align: middle;
   background-clip: text; 
 padding-bottom: 15px;
 }
-.code_chato p{
+.code_chato h3{
   font-family: Inter;
 font-weight: 400;
 font-style: Regular;
@@ -1083,7 +1085,7 @@ padding-bottom: 15px;
 
 
 }
-.highlight__text p{
+.highlight__text h3{
       font-family: Inter;
     font-weight: 400;
     font-style: Regular;
@@ -1156,7 +1158,7 @@ background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.7) 100%);
 
 }
 
-.about_us__text p {
+.about_us__text h3 {
  font-family: Inter;
 font-weight: 400;
 font-style: Regular;
@@ -1340,7 +1342,7 @@ background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0.7) 100%);
   background-clip: text; 
 }
 
-.final__content p {
+.final__content h3 {
    font-family: Inter;
 font-weight: 400;
 font-style: Regular;
