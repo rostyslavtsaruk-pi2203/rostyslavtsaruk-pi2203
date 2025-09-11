@@ -1607,6 +1607,10 @@ margin-left: 25px;
     width: 48%;   /* два в ряд */
     border-right: none; /* прибираємо вертикальні лінії */
     margin-bottom: 20px;
+    text-align: center;
+  }
+  .feature img{
+    width: 100%;
   }
 }
 @media(max-width: 800px){
