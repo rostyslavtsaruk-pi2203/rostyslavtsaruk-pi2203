@@ -326,7 +326,7 @@ vertical-align: middle;
   margin: 0 auto; /* відступ зверху 80px */
   position: relative;
   z-index: 10; /* щоб було вище за чорну діру */
-  margin-top: 30px;
+  margin-top: 300px;
 }
 
 
@@ -358,11 +358,11 @@ vertical-align: middle;
   margin-bottom: 10px;
 }
 
-.feature p {
+.feature h3 {
   font-size: 16px;
   color: #fff;
 }
-.feature small {
+.feature h4 {
 font-family: Inter;
 font-weight: 400;
 font-style: Regular;
@@ -430,7 +430,10 @@ color: rgba(239, 237, 253, 0.7);
 
 .features-image img {
   max-width: 100%;
-  height: auto;
+    height: auto;
+    transform: scale(1.5);
+    position: relative;
+    z-index: -10;
 }
 
 .gradient-text {
@@ -617,7 +620,6 @@ color: rgba(239, 237, 253, 0.7);
 
 .banner-hero__img {
   position: absolute;
-  width: 100%;
   max-width: 1500px;
   object-fit: cover; 
   z-index: 0;
@@ -631,7 +633,7 @@ color: rgba(239, 237, 253, 0.7);
   color: #fff;
   max-width: 1200px;
   z-index: 1; 
-  margin-top: 800px;
+  margin-top: 600px;
 }
 
 
@@ -922,7 +924,7 @@ padding-bottom: 15px;
   position: relative;
   text-align: center;
   color: #fff;
-  padding: 120px 20px 0; 
+  margin-top: 250px;
 }
 
 .pricing__wrapper {
@@ -1581,6 +1583,37 @@ margin-left: 25px;
   }
 
 }
+@media (max-width: 1000px) {
+  .two-grid {
+    display: flex;
+    flex-direction: column; /* блоки стають один під одним */
+    align-items: center;    /* центруємо їх */
+    gap: 20px;              /* відстань між блоками */
+  }
+
+  .grid-box {
+    width: 468px;   /* фіксована ширина */
+    height: 384px;  /* фіксована висота */
+  }
+  .features-grid{
+    margin-top: 0px;
+  }
+   .grid-row {
+    flex-wrap: wrap;              /* дозволяємо перенос елементів */
+    justify-content: space-around; /* щоб рівномірно */
+  }
+
+  .feature {
+    width: 48%;   /* два в ряд */
+    border-right: none; /* прибираємо вертикальні лінії */
+    margin-bottom: 20px;
+  }
+}
+@media(max-width: 800px){
+  .pricing__content{
+    top: 10%;
+  }
+}
 @media (max-width: 768px) {
   .banner-feature__grid {
     grid-template-columns: repeat(2, 1fr); /* 2 колонки на мобілці */
@@ -1617,6 +1650,18 @@ margin-left: 25px;
 @media(max-width: 768px){
   .image_bottom{
    transform: translateX(-50%) translateY(-50%) scale(1.0);
+  }
+  
+}
+@media(max-width: 650px){
+  .image_bottom{
+   transform: translateX(-50%) translateY(-80%) scale(1.0);
+  }
+  
+}
+@media(max-width: 590px){
+  .image_bottom{
+   transform: translateX(-50%) translateY(-120%) scale(1.0);
   }
   
 }
